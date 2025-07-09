@@ -1,0 +1,876 @@
+/* 
+ * calendario.css - Liga 3x3 2025 (VERSIÓN FINAL COMPLETA)
+ * Estilos para el calendario de partidos con tamaños uniformes y nuevos colores
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    min-height: 100vh;
+    color: #333;
+    padding-bottom: 100px; /* Aumentado para evitar superposición */
+}
+
+/* HEADER */
+header {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.header-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    color: #000; /* Agregar esto */
+    /* Comentar o eliminar estas líneas del gradiente:
+    background: linear-gradient(45deg, #fff, #ffeb3b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    */
+}
+
+.header-content h3 {
+    font-size: 1.3em;
+    opacity: 0.9;
+    font-weight: 300;
+}
+
+.basketball-icon {
+    font-size: 2em;
+    margin: 0 20px;
+    animation: bounce 2s infinite;
+}
+
+.club-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 10px 0;
+}
+
+.club-logo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    border: 3px solid rgba(255,255,255,0.8);
+}
+
+/* Ajustar el título del club */
+.club-info h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+/* NAVEGACIÓN */
+.navbar {
+    background: rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.1);
+    border: 2px solid transparent;
+}
+
+.nav-link:hover,
+.nav-item.active .nav-link {
+    background: rgba(255,255,255,0.9);
+    color: #4CAF50;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border: 2px solid white;
+}
+
+/* CONTENIDO PRINCIPAL */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+    color: white;
+}
+
+.page-title h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.page-title p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* ESTADÍSTICAS DEL CALENDARIO */
+.calendar-stats {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.stat-item {
+    text-align: center;
+    padding: 15px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 12px;
+}
+
+.stat-number {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #4CAF50;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* CONTENEDOR DEL CALENDARIO */
+.calendar-container {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow-x: auto;
+}
+
+.calendar-grid {
+    display: flex;
+    flex-direction: column;
+    min-width: 1200px;
+}
+
+/* HEADER DEL CALENDARIO */
+.calendar-header-row {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.time-header {
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    font-size: 1.1em;
+}
+
+.pista-header {
+    background: linear-gradient(135deg, #333, #555);
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.pista-header i {
+    color: #4CAF50;
+}
+
+/* FILAS DEL CALENDARIO */
+.calendar-row {
+    display: grid;
+    grid-template-columns: 100px repeat(6, 1fr);
+    gap: 2px;
+    margin-bottom: 2px;
+}
+
+.time-cell {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    padding: 20px 10px;
+    text-align: center;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1em;
+    color: #495057;
+}
+
+/* FORZAR TAMAÑO EXACTO EN CELDAS DE PARTIDOS */
+.match-cell {
+    background: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
+    padding: 4px; /* Padding mínimo */
+    /* TAMAÑO FORZADO */
+    width: 100%;
+    height: 160px; /* ALTURA FIJA ABSOLUTA - Aumentada */
+    min-height: 160px;
+    max-height: 160px;
+    display: block; /* Cambio a block para control total */
+    overflow: hidden; /* Evita desbordamiento */
+}
+
+/* TARJETAS DE PARTIDOS - TAMAÑO ABSOLUTAMENTE FORZADO */
+.match-card {
+    /* DIMENSIONES ABSOLUTAS */
+    width: 100%;
+    height: 152px; /* Altura fija (160px - 8px de padding) - Aumentada */
+    min-height: 152px;
+    max-height: 152px;
+    
+    border-radius: 8px;
+    padding: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    
+    /* LAYOUT INTERNO */
+    display: block; /* Control total del layout */
+}
+
+.match-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    z-index: 10; /* Menor que el footer (1000) */
+}
+
+/* SECCIONES CON ALTURA FIJA */
+.match-id {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.75em;
+    font-weight: bold;
+    margin-bottom: 4px;
+    /* ALTURA FIJA */
+    height: 18px;
+    line-height: 14px;
+    overflow: hidden;
+}
+
+.match-teams {
+    /* ALTURA FIJA PARA LA SECCIÓN DE EQUIPOS */
+    height: 70px; /* Reducida porque la categoría ya no está aquí */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 4px;
+}
+
+.team {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.82em;
+    /* ALTURA FIJA POR EQUIPO */
+    height: 20px;
+    line-height: 1;
+}
+
+.team strong {
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-right: 6px;
+    font-weight: 600;
+}
+
+.points {
+    background: rgba(0,0,0,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+    min-width: 25px;
+    width: 25px; /* ANCHO FIJO */
+    text-align: center;
+    font-size: 0.9em;
+    flex-shrink: 0;
+}
+
+.vs {
+    text-align: center;
+    font-size: 0.7em;
+    font-weight: bold;
+    opacity: 0.7;
+    /* ALTURA FIJA */
+    height: 14px;
+    line-height: 14px;
+}
+
+.match-info {
+    text-align: center;
+    /* ALTURA FIJA PARA LA INFORMACIÓN */
+    height: 20px; /* Reducida porque solo contiene el status */
+    overflow: hidden;
+}
+
+.status {
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 4px;
+    background: rgba(0,0,0,0.1);
+    display: inline-block;
+    margin-bottom: 2px;
+    /* ALTURA FIJA */
+    height: 16px;
+    line-height: 12px;
+}
+
+.status.programado {
+    background: rgba(255, 193, 7, 0.8);
+    color: #000;
+}
+
+.status.jugado {
+    background: rgba(40, 167, 69, 0.8);
+    color: #fff;
+}
+
+.status.empate {
+    background: rgba(108, 117, 125, 0.8);
+    color: #fff;
+}
+
+.categoria {
+    font-size: 0.65em; /* Tamaño legible */
+    opacity: 0.9;
+    text-align: center;
+    background: rgba(0,0,0,0.1);
+    padding: 2px 6px;
+    border-radius: 4px;
+    margin-bottom: 6px;
+    /* ALTURA FIJA */
+    height: 16px; /* Ajustada para la nueva posición */
+    line-height: 12px;
+    overflow: hidden;
+    font-weight: 500;
+}
+
+/* SLOTS VACÍOS CON MISMO TAMAÑO */
+.empty-slot {
+    width: 100%;
+    height: 152px; /* MISMA ALTURA QUE LAS TARJETAS - Aumentada */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #6c757d;
+    font-size: 0.9em;
+    opacity: 0.6;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #f8f9fa, #ffffff);
+}
+
+.empty-slot i {
+    font-size: 1.5em;
+    margin-bottom: 5px;
+}
+
+/* ESTADO VACÍO */
+.no-matches {
+    text-align: center;
+    padding: 60px 20px;
+    color: white;
+}
+
+.no-matches i {
+    font-size: 4em;
+    margin-bottom: 20px;
+    opacity: 0.7;
+}
+
+.no-matches h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+/* FOOTER */
+footer {
+    background: rgba(0,0,0,0.3);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(10px);
+    z-index: 1000; /* Z-index alto para estar siempre encima */
+}
+
+/* ANIMACIONES */
+.fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* RESPONSIVE DESIGN CON TAMAÑOS FORZADOS */
+
+/* Tablets */
+@media (max-width: 1200px) {
+    .calendar-grid {
+        min-width: 1000px;
+    }
+    
+    .calendar-header-row,
+    .calendar-row {
+        grid-template-columns: 80px repeat(6, 1fr);
+    }
+    
+    .container {
+        padding: 30px 15px;
+    }
+    
+    /* AJUSTAR TAMAÑOS PARA TABLET */
+    .match-cell {
+        height: 140px; /* Aumentada */
+    }
+    
+    .match-card,
+    .empty-slot {
+        height: 132px; /* Aumentada */
+    }
+    
+    .match-teams {
+        height: 60px; /* Ajustada para tablet */
+    }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+    body {
+        padding-bottom: 120px; /* Más espacio en móviles */
+    }
+    
+    .header-content h1 {
+        font-size: 2em;
+    }
+    
+    .header-content h3 {
+        font-size: 1.1em;
+    }
+    
+    .basketball-icon {
+        font-size: 1.5em;
+        margin: 0 10px;
+    }
+
+    /* Logo responsive para móviles */
+    .club-info {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .club-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .club-info h1 {
+        font-size: 1.8em;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .nav-link {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .page-title h2 {
+        font-size: 1.8em;
+    }
+    
+    .page-title p {
+        font-size: 1em;
+    }
+    
+    .calendar-container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    
+    .calendar-grid {
+        min-width: 800px;
+    }
+    
+    .calendar-header-row,
+    .calendar-row {
+        grid-template-columns: 60px repeat(6, 1fr);
+    }
+    
+    .time-header,
+    .pista-header {
+        padding: 10px 5px;
+        font-size: 0.9em;
+    }
+    
+    /* TAMAÑOS MÓVIL */
+    .match-cell {
+        height: 120px; /* Aumentada */
+    }
+    
+    .match-card,
+    .empty-slot {
+        height: 112px; /* Aumentada */
+    }
+    
+    .match-teams {
+        height: 55px; /* Ajustada para móvil */
+    }
+    
+    .team {
+        font-size: 0.75em;
+        height: 18px;
+    }
+    
+    .points {
+        font-size: 0.8em;
+        min-width: 20px;
+        width: 20px;
+    }
+}
+
+/* Móviles pequeños */
+@media (max-width: 480px) {
+    body {
+        padding-bottom: 140px; /* Aún más espacio en móviles pequeños */
+    }
+    
+    .header-content h1 {
+        font-size: 1.6em;
+    }
+    
+    .header-content h3 {
+        font-size: 1em;
+    }
+    
+    .basketball-icon {
+        font-size: 1.2em;
+        margin: 0 5px;
+    }
+    
+    .nav-link span {
+        display: none;
+    }
+    
+    .nav-link {
+        padding: 12px;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+    }
+    
+    .nav-link i {
+        margin: 0;
+        font-size: 1.2em;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .stat-number {
+        font-size: 1.8em;
+    }
+    
+    .stat-label {
+        font-size: 0.8em;
+    }
+    
+    .page-title h2 {
+        font-size: 1.5em;
+    }
+    
+    .calendar-grid {
+        min-width: 600px;
+    }
+    
+    .calendar-header-row,
+    .calendar-row {
+        grid-template-columns: 50px repeat(6, 1fr);
+        gap: 1px;
+    }
+    
+    .time-header,
+    .pista-header {
+        padding: 8px 3px;
+        font-size: 0.8em;
+    }
+    
+    .pista-header i {
+        display: none;
+    }
+    
+    /* TAMAÑOS MÓVIL PEQUEÑO */
+    .match-cell {
+        height: 105px; /* Aumentada */
+    }
+    
+    .match-card,
+    .empty-slot {
+        height: 97px; /* Aumentada */
+    }
+    
+    .match-teams {
+        height: 45px; /* Ajustada para móvil pequeño */
+    }
+    
+    .match-id {
+        font-size: 0.65em;
+        height: 14px;
+        line-height: 10px;
+    }
+    
+    .team {
+        font-size: 0.7em;
+        height: 15px;
+    }
+    
+    .points {
+        font-size: 0.7em;
+        min-width: 18px;
+        width: 18px;
+    }
+    
+    .vs {
+        font-size: 0.6em;
+        height: 10px;
+        line-height: 10px;
+    }
+    
+    .status {
+        font-size: 0.6em;
+        height: 12px;
+        line-height: 8px;
+    }
+    
+    .categoria {
+        font-size: 0.55em; /* Ajustada para móvil pequeño */
+        height: 14px;
+        line-height: 10px;
+        padding: 1px 4px;
+    }
+    
+    .match-info {
+        height: 18px; /* Reducida para móvil pequeño */
+    }
+}
+
+/* MEJORAS ADICIONALES PARA UNIFORMIDAD */
+.calendar-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Asegurar que todas las celdas tengan la misma altura en una fila */
+.calendar-row {
+    align-items: stretch;
+}
+
+/* MEJORAR LEGIBILIDAD CON NUEVOS COLORES DE CATEGORÍAS */
+
+/* Fondos claros - Pre-Mini (amarillo) */
+.match-card[style*="background-color: #FFFF00"] .match-id,
+.match-card[style*="background-color: #ffff00"] .match-id,
+.match-card[style*="background-color: #FFFF00"] .categoria,
+.match-card[style*="background-color: #ffff00"] .categoria {
+    background: rgba(0,0,0,0.3);
+    color: #000;
+}
+
+.match-card[style*="background-color: #FFFF00"] .points,
+.match-card[style*="background-color: #ffff00"] .points {
+    background: rgba(0,0,0,0.3);
+    color: #000;
+}
+
+.match-card[style*="background-color: #FFFF00"] .status,
+.match-card[style*="background-color: #ffff00"] .status {
+    background: rgba(0,0,0,0.3);
+    color: #000;
+}
+
+/* Fondos claros - Mini Masculí (beige/crema) */
+.match-card[style*="background-color: #FCD5B4"] .match-id,
+.match-card[style*="background-color: #fcd5b4"] .match-id,
+.match-card[style*="background-color: #FCD5B4"] .categoria,
+.match-card[style*="background-color: #fcd5b4"] .categoria {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+.match-card[style*="background-color: #FCD5B4"] .points,
+.match-card[style*="background-color: #fcd5b4"] .points {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+.match-card[style*="background-color: #FCD5B4"] .status,
+.match-card[style*="background-color: #fcd5b4"] .status {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+/* Fondos claros - Infantil Masculí (azul claro) */
+.match-card[style*="background-color: #C5D9F1"] .match-id,
+.match-card[style*="background-color: #c5d9f1"] .match-id,
+.match-card[style*="background-color: #C5D9F1"] .categoria,
+.match-card[style*="background-color: #c5d9f1"] .categoria {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+.match-card[style*="background-color: #C5D9F1"] .points,
+.match-card[style*="background-color: #c5d9f1"] .points {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+.match-card[style*="background-color: #C5D9F1"] .status,
+.match-card[style*="background-color: #c5d9f1"] .status {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+/* Fondos claros - Infantil Femení (verde claro) */
+.match-card[style*="background-color: #92D050"] .match-id,
+.match-card[style*="background-color: #92d050"] .match-id,
+.match-card[style*="background-color: #92D050"] .categoria,
+.match-card[style*="background-color: #92d050"] .categoria {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+.match-card[style*="background-color: #92D050"] .points,
+.match-card[style*="background-color: #92d050"] .points {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+.match-card[style*="background-color: #92D050"] .status,
+.match-card[style*="background-color: #92d050"] .status {
+    background: rgba(0,0,0,0.25);
+    color: #000;
+}
+
+/* Fondos oscuros - mejorar contraste */
+.match-card[style*="background-color: #4F6228"] .match-id,
+.match-card[style*="background-color: #4f6228"] .match-id,
+.match-card[style*="background-color: #948B54"] .match-id,
+.match-card[style*="background-color: #948b54"] .match-id,
+.match-card[style*="background-color: #4F6228"] .categoria,
+.match-card[style*="background-color: #4f6228"] .categoria,
+.match-card[style*="background-color: #948B54"] .categoria,
+.match-card[style*="background-color: #948b54"] .categoria {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.match-card[style*="background-color: #4F6228"] .points,
+.match-card[style*="background-color: #4f6228"] .points,
+.match-card[style*="background-color: #948B54"] .points,
+.match-card[style*="background-color: #948b54"] .points {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}
+
+.match-card[style*="background-color: #4F6228"] .status,
+.match-card[style*="background-color: #4f6228"] .status,
+.match-card[style*="background-color: #948B54"] .status,
+.match-card[style*="background-color: #948b54"] .status {
+    background: rgba(255,255,255,0.2);
+    color: #fff;
+}

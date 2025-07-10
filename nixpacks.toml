@@ -1,8 +1,0 @@
-[phases.setup]
-nixPkgs = ['php81', 'composer']
-
-[phases.build]
-cmds = ['composer install --ignore-platform-reqs --no-dev || echo "Composer install skipped"']
-
-[start]
-cmd = 'php -S 0.0.0.0:$PORT -t .'
